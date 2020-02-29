@@ -1,10 +1,14 @@
 const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
+
 dotenv.config();
-let port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
+
+const users = [];
 
 app.set('view-engine', 'ejs');
+app.use(express.urlencoded({ extended: false }))
 
 app.get('/', (req, res) => {
   res.render('index.ejs', { name: 'Kyle'});
@@ -12,6 +16,10 @@ app.get('/', (req, res) => {
 
 app.get('/login', (req, res) => {
   res.render('login.ejs');
+})
+
+app.post('/login', (req, res) => {
+
 })
 
 app.get('/register', (req, res) => {
