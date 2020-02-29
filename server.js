@@ -1,5 +1,8 @@
 const express = require('express');
 const app = express();
+const dotenv = require('dotenv');
+dotenv.config();
+let port = process.env.PORT || 3000;
 
 app.set('view-engine', 'ejs');
 
@@ -16,7 +19,9 @@ app.get('/register', (req, res) => {
 })
 
 app.post('/register', (req, res) => {
-  
+
 })
 
-app.listen(3000);
+app.listen(port, () => {
+  console.log(`Web is running on http://localhost:${port}`)
+});
